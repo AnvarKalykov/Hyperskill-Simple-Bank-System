@@ -2,8 +2,12 @@ package SimpleBank;
 
 public class Main {
     public static void main(String[] args) {
-        AccountUser accountUser = new AccountUser(args[1]);
-        accountUser.startSystem();
+        String baseName = "db.s3db";
+        if ((args.length == 2) && (args[0].equals("-fileName"))) {
+            baseName = args[1];
+        }
+
+        new BankingSystem().run(baseName);
 
     }
 }
